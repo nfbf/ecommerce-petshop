@@ -4,7 +4,7 @@ export class Security {
 
     public static set(user: User, token: string) {
         const data = JSON.stringify(user);
-
+        //btoa: encripta o dado
         localStorage.setItem('petshopuser', btoa(data));
         localStorage.setItem('petshoptoken', token);
     }
@@ -24,6 +24,7 @@ export class Security {
         const data = localStorage.getItem('petshopuser');
 
         if (data) {
+            //desincripta o dado
             return JSON.parse(atob(data));
         }
         else {
