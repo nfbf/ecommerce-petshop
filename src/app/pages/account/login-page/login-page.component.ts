@@ -34,7 +34,7 @@ export class LoginPageComponent implements OnInit {
     const token = Security.getToken();
     if (token) {
       this.busy = true;
-      this.service.refreshToken(this.form.value).subscribe((data: any) => {
+      this.service.refreshToken().subscribe((data: any) => {
         this.busy = false;
         this.setUser(data.customer, data.token);
 
